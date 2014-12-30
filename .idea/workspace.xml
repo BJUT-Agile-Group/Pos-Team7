@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e540162-4f89-4195-b678-4420c0e0dae8" name="Default" comment="Product list">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/PosTeam7/Main.java" afterPath="$PROJECT_DIR$/src/com/PosTeam7/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Pos-Team7.iws" />
@@ -391,7 +390,13 @@
       <option name="project" value="LOCAL" />
       <updated>1419921523896</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Product list">
+      <created>1419921819042</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1419921819042</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
