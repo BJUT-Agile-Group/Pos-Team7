@@ -2,7 +2,7 @@ package item;
 
 import java.util.ArrayList;
 
-public class Card {
+public class Cart {
     private ArrayList<Item> items = new ArrayList<Item>();
 
     public ArrayList<Item> getItems() {
@@ -13,7 +13,7 @@ public class Card {
         this.items = items;
     }
 
-    public void CAndG() {
-        Card card = new Card();
+    public void AddItem(Item item) {
+        items.add(item);
     }
 }
