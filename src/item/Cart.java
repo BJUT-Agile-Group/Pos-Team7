@@ -6,10 +6,6 @@ import java.util.Scanner;
 public class Cart {
     private ArrayList<Item> items = new ArrayList<Item>();
 
-    private static void add(Item item) {
-        Cart.add(item);
-    }
-
     public ArrayList<Item> getItems() {
         return items;
     }
@@ -30,7 +26,7 @@ public class Cart {
                 .replaceAll("\\{|\\[|\\]| |　|\t|'|barcode|name|unit|price|discount|:|：", "")
                 .split("]，|},|}");
         for (String a : temp) {
-            Cart.add(new Item(a.split(",|，")));
+            items.add(new Item(a.split(",|，")));
         }
     }
 }
