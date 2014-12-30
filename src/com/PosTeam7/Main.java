@@ -1,6 +1,6 @@
 package com.PosTeam7;
 
-import info.Info;
+import item.Item;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        List<Info> product = new ArrayList<Info>();
+        List<Item> shoppingCart = new ArrayList<Item>();
         String[] temp;
         StringBuilder inTemp = new StringBuilder();
         do {
@@ -21,19 +21,19 @@ public class Main {
                 .replaceAll("\\{|\\[|\\]| |　|\t|'|barcode|name|unit|price|discount|:|：", "")
                 .split("]，|},|}");
         for (String a : temp) {
-            product.add(new Info(a.split(",|，")));
+            shoppingCart.add(new Item(a.split(",|，")));
         }
-        for (int i = 0; i < product.size(); i++) {
-            for (int j = product.size() - 1; j > i; j--) {
-                if (product.get(i).getBarcode().equals(product.get(j).getBarcode())) {
-                    product.get(i).setNum(product.get(i).getNum() + 1);
-                    product.remove(j);
+        for (int i = 0; i < shoppingCart.size(); i++) {
+            for (int j = shoppingCart.size() - 1; j > i; j--) {
+                if (shoppingCart.get(i).getBarcode().equals(shoppingCart.get(j).getBarcode())) {
+                    shoppingCart.get(i).setNum(shoppingCart.get(i).getNum() + 1);
+                    shoppingCart.remove(j);
                 }
             }
         }
         double sum = 0;
         double discount = 0;
-        for (Info a : product) {
+        for (Item a : shoppingCart) {
             System.out.println(a.getName() + "," + a.getNum() + a.getUnit() + "," + "￥" + a.getTotal());
             sum += a.getTotal();
             discount += a.getTotalDiscount();
