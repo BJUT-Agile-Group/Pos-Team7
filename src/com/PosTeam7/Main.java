@@ -15,13 +15,13 @@ public class Main {
         StringBuilder inTemp = new StringBuilder();
         do {
             inTemp.append(in.nextLine());
-        } while (!inTemp.toString().endsWith("]"));
+        } while (!inTemp.toString().replaceAll(" |　", "").endsWith("]"));
         temp = inTemp
                 .toString()
-                .replaceAll("\\{|\\[|\\]| |\t|'|barcode:|name:|unit:|price:", "")
-                .split("},|}");
+                .replaceAll("\\{|\\[|\\]| |　|\t|'|barcode|name|unit|price|discount|:|：", "")
+                .split("]，|},|}");
         for (String a : temp) {
-            product.add(new Info(a.split(",")));
+            product.add(new Info(a.split(",|，")));
         }
         for (int i = 0; i < product.size(); i++) {
             for (int j = product.size() - 1; j > i; j--) {
@@ -31,11 +31,14 @@ public class Main {
                 }
             }
         }
-        int sum = 0;
+        double sum = 0;
+        double discount = 0;
         for (Info a : product) {
             System.out.println(a.getName() + "," + a.getNum() + a.getUnit() + "," + "￥" + a.getTotal());
             sum += a.getTotal();
+            discount += a.getTotalDiscount();
         }
         System.out.println("￥" + sum);
+        System.out.println("save:" + "￥" + (float) discount);
     }
 }
