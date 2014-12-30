@@ -13,7 +13,7 @@ public class Main {
         do {
             inTemp.append(in.nextLine());
         } while (!inTemp.toString().endsWith("]"));
-        temp = inTemp.toString().replaceAll("\\{|\\[|\\]", "").replaceAll(" ", "").split("},|}");
+        temp = inTemp.toString().replaceAll("\\{|\\[|\\]| ", "").split("},|}");
         ///
         ///ewaogia
         ///
