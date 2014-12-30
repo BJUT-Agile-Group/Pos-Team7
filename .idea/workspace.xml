@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2e540162-4f89-4195-b678-4420c0e0dae8" name="Default" comment="Product list">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/PosTeam7/Main.java" afterPath="$PROJECT_DIR$/src/com/PosTeam7/Main.java" />
+    <list default="true" id="2e540162-4f89-4195-b678-4420c0e0dae8" name="Default" comment="Requirement 1 &amp; 2 Done&#10;Version 1.2">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Pos-Team7/info/Info.class" afterPath="$PROJECT_DIR$/out/production/Pos-Team7/info/Info.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Pos-Team7/com/PosTeam7/Main.class" afterPath="$PROJECT_DIR$/out/production/Pos-Team7/com/PosTeam7/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Pos-Team7.iws" />
@@ -34,8 +35,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/PosTeam7/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30690536" vertical-offset="0" max-vertical-offset="782">
-              <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.7894737" vertical-offset="0" max-vertical-offset="836">
+              <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#273#279#0" expanded="true" />
@@ -70,9 +71,9 @@
                 <element signature="e#1163#1164#0" expanded="true" />
                 <element signature="e#1205#1206#0" expanded="true" />
                 <element signature="e#1239#1240#0" expanded="true" />
-                <element signature="e#1287#1288#0" expanded="true" />
-                <element signature="e#1325#1326#0" expanded="true" />
-                <element signature="e#1360#1361#0" expanded="true" />
+                <element signature="e#1274#1275#0" expanded="true" />
+                <element signature="e#1305#1306#0" expanded="true" />
+                <element signature="e#1353#1354#0" expanded="true" />
                 <element signature="e#1391#1392#0" expanded="true" />
                 <element signature="e#1422#1423#0" expanded="true" />
                 <element signature="e#1482#1483#0" expanded="true" />
@@ -455,27 +456,33 @@
       <option name="project" value="LOCAL" />
       <updated>1419928863668</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Product list">
+      <created>1419932099542</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1419932099543</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2176" height="1416" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292797" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32970452" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32970452" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32970452" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292797" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3716952" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3716952" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292797" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15801887" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15801887" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -508,7 +515,8 @@
     <MESSAGE value="New project" />
     <MESSAGE value="Hello Soap Again" />
     <MESSAGE value="Product list" />
-    <option name="LAST_COMMIT_MESSAGE" value="Product list" />
+    <MESSAGE value="Requirement 1 &amp; 2 Done&#10;Version 1.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Requirement 1 &amp; 2 Done&#10;Version 1.2" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -560,9 +568,9 @@
             <element signature="e#1163#1164#0" expanded="true" />
             <element signature="e#1205#1206#0" expanded="true" />
             <element signature="e#1239#1240#0" expanded="true" />
-            <element signature="e#1287#1288#0" expanded="true" />
-            <element signature="e#1325#1326#0" expanded="true" />
-            <element signature="e#1360#1361#0" expanded="true" />
+            <element signature="e#1274#1275#0" expanded="true" />
+            <element signature="e#1305#1306#0" expanded="true" />
+            <element signature="e#1353#1354#0" expanded="true" />
             <element signature="e#1391#1392#0" expanded="true" />
             <element signature="e#1422#1423#0" expanded="true" />
             <element signature="e#1482#1483#0" expanded="true" />
@@ -608,9 +616,9 @@
             <element signature="e#1163#1164#0" expanded="true" />
             <element signature="e#1205#1206#0" expanded="true" />
             <element signature="e#1239#1240#0" expanded="true" />
-            <element signature="e#1287#1288#0" expanded="true" />
-            <element signature="e#1325#1326#0" expanded="true" />
-            <element signature="e#1360#1361#0" expanded="true" />
+            <element signature="e#1274#1275#0" expanded="true" />
+            <element signature="e#1305#1306#0" expanded="true" />
+            <element signature="e#1353#1354#0" expanded="true" />
             <element signature="e#1391#1392#0" expanded="true" />
             <element signature="e#1422#1423#0" expanded="true" />
             <element signature="e#1482#1483#0" expanded="true" />
@@ -717,9 +725,9 @@
             <element signature="e#1163#1164#0" expanded="true" />
             <element signature="e#1205#1206#0" expanded="true" />
             <element signature="e#1239#1240#0" expanded="true" />
-            <element signature="e#1287#1288#0" expanded="true" />
-            <element signature="e#1325#1326#0" expanded="true" />
-            <element signature="e#1360#1361#0" expanded="true" />
+            <element signature="e#1274#1275#0" expanded="true" />
+            <element signature="e#1305#1306#0" expanded="true" />
+            <element signature="e#1353#1354#0" expanded="true" />
             <element signature="e#1391#1392#0" expanded="true" />
             <element signature="e#1422#1423#0" expanded="true" />
             <element signature="e#1482#1483#0" expanded="true" />
@@ -731,8 +739,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/PosTeam7/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30690536" vertical-offset="0" max-vertical-offset="782">
-          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.7894737" vertical-offset="0" max-vertical-offset="836">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#273#279#0" expanded="true" />
