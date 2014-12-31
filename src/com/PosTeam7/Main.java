@@ -9,20 +9,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        List<Item> shoppingCart = new ArrayList<Item>();
-        String[] temp;
-        StringBuilder inTemp = new StringBuilder();
-        do {
-            inTemp.append(in.nextLine());
-        } while (!inTemp.toString().replaceAll(" |　", "").endsWith("]"));
-        temp = inTemp
-                .toString()
-                .replaceAll("\\{|\\[|\\]| |　|\t|'|barcode|name|unit|price|discount|:|：", "")
-                .split("]，|},|}");
-        for (String a : temp) {
-            shoppingCart.add(new Item(a.split(",|，")));
-        }
+        List<Item> shoppingCart = getShoppingCart(getLine());
         for (int i = 0; i < shoppingCart.size(); i++) {
             for (int j = shoppingCart.size() - 1; j > i; j--) {
                 if (shoppingCart.get(i).getBarcode().equals(shoppingCart.get(j).getBarcode())) {
@@ -40,5 +27,22 @@ public class Main {
         }
         System.out.println("￥" + sum);
         System.out.println("save:" + "￥" + (float) discount);
+    }
+
+    public static String getLine() {
+        Scanner in = new Scanner(System.in);
+        StringBuilder inputStr = new StringBuilder();
+        do {
+            inputStr.append(in.nextLine());
+        } while (!inputStr.toString().replaceAll(" |　", "").endsWith("]"));
+        return inputStr.toString();
+    }
+
+    public static List<Item> getShoppingCart(String inputStr) {
+        List<Item> shoppingCart = new ArrayList<Item>();
+        for (String a : inputStr.replaceAll("\\{|\\[|\\]| |　|\t|\n|'|barcode|name|unit|price|discount|:|：", "").split("]，|},|}")) {
+            shoppingCart.add(new Item(a.split(",|，")));
+        }
+        return shoppingCart;
     }
 }
