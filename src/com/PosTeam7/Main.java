@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
         List<Index> indexList = new ArrayList<Index>();
         List<ProductList> productList = new ArrayList<ProductList>();
-        // Index index = new Index(indexList);
+        Index index = new Index(indexList);
         ProductList product = new ProductList(productList);
         //  List<Item> shoppingCart = getShoppingCart(getLine());
 /*        for (int i = 0; i < shoppingCart.size(); i++) {

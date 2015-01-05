@@ -1,5 +1,6 @@
 package item;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -26,7 +27,7 @@ public class ProductList {
             product.setBarcode(d);
             productList.add(product);
         }
-
+        productList.sort(new SortProduct());
     }
 
     public String getBarcode() {
@@ -35,5 +36,11 @@ public class ProductList {
 
     public void setBarcode(String barcode) {
         this.barcode = barcode;
+    }
+}
+
+class SortProduct implements Comparator {
+    public int compare(Object s1, Object s2) {
+        return s1.toString().compareTo(s2.toString());
     }
 }

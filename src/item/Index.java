@@ -1,5 +1,6 @@
 package item;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,6 +12,7 @@ public class Index {
     private String name;
     private String unit;
     private double price;
+    private double discount;
 
     public Index() {
     }
@@ -20,6 +22,11 @@ public class Index {
         setName(a[1]);
         setUnit(a[2]);
         setPrice(Double.parseDouble(a[3]));
+        if (a.length == 5) {
+            setDiscount(Double.parseDouble(a[4]));
+        } else {
+            setDiscount(1);
+        }
     }
 
     public Index(List<Index> indexList) {
@@ -32,10 +39,10 @@ public class Index {
         String a = inputStr.toString();
         String c[] = a.substring(0, a.length() - 2).split("}," );
         for (String d : c) {
-            Index index = new Index(d.replaceAll("\\'\\:|\\{|\\'|name|unit|price| |\\'|\\,", "" ).split(":" ));
+            Index index = new Index(d.replaceAll("\\'\\:|\\{|\\'|name|unit|price|discount| |\\'|\\,", "").split(":"));
             indexList.add(index);
         }
-
+        indexList.sort(new SortIndex());
     }
 
     public String getName() {
@@ -68,5 +75,21 @@ public class Index {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+}
+
+class SortIndex implements Comparator {
+    public int compare(Object o1, Object o2) {
+        Index s1 = (Index) o1;
+        Index s2 = (Index) o2;
+        return s1.getBarcode().compareTo(s2.getBarcode());
     }
 }
