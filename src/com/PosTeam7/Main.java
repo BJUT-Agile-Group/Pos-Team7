@@ -15,6 +15,7 @@ public class Main {
     public static void main(String[] args) {
         List<Index> indexList = new ArrayList<Index>();
         List<ProductList> productList = new ArrayList<ProductList>();
+        List<Item> promotion = new ArrayList<Item>();
         ShoppingCart shoppingCart = new ShoppingCart();
         Index index = new Index(indexList);
         ProductList product = new ProductList(productList);
@@ -52,12 +53,24 @@ public class Main {
         double sum = 0;
         double discount = 0;
         for (Item a : shoppingCart.shoppingCart) {
+            System.out.println("***商店购物清单***\n");
             System.out.println(a.getName() + "," + a.getNum() + a.getUnit() + "," + "￥" + a.getTotal());
+            System.out.println("************\n");
+            if (a.isPromotion() && a.getNum() >= 3) {
+                promotion.add(a);
+            }
             sum += a.getTotal();
             discount += a.getTotalDiscount();
         }
-        System.out.println("￥" + sum);
-        System.out.println("save:" + "￥" + (float) discount);
+        if (!promotion.isEmpty()) {
+            System.out.println("爺送你的");
+            for (Item a : promotion) {
+                System.out.println(a.getName() + "\t1" + a.getUnit());
+            }
+        }
+        System.out.println("************\n");
+        System.out.println("总计：￥" + sum);
+        System.out.println("节省:" + "￥" + (float) discount);
     }
 /*
     public static String getLine() {

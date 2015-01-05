@@ -13,9 +13,11 @@ public class Index {
     private String unit;
     private double price;
     private double discount;
+    private boolean promotion;
 
     public Index() {
     }
+
 
     public Index(String a[]) {
         setBarcode(a[0]);
@@ -23,9 +25,16 @@ public class Index {
         setUnit(a[2]);
         setPrice(Double.parseDouble(a[3]));
         if (a.length == 5) {
-            setDiscount(Double.parseDouble(a[4]));
+            if (a[4].equals("true")) {
+                setPromotion(true);
+                setDiscount(1);
+            } else {
+                setPromotion(false);
+                setDiscount(Double.parseDouble(a[4]));
+            }
         } else {
             setDiscount(1);
+            setPromotion(false);
         }
     }
 
@@ -39,7 +48,7 @@ public class Index {
         String a = inputStr.toString();
         String c[] = a.substring(0, a.length() - 2).split("}," );
         for (String d : c) {
-            Index index = new Index(d.replaceAll("\\'\\:|\\{|\\'|name|unit|price|discount| |\\'|\\,", "").split(":"));
+            Index index = new Index(d.replaceAll("\\'\\:|\\{|\\'|name|unit|price|discount|promotion| |\\'|\\,|，", "").split(":"));
             indexList.add(index);
         }
         indexList.sort(new SortIndex());
@@ -84,7 +93,16 @@ public class Index {
     public void setDiscount(double discount) {
         this.discount = discount;
     }
+
+    public boolean isPromotion() {
+        return promotion;
+    }
+
+    public void setPromotion(boolean promotion) {
+        this.promotion = promotion;
+    }
 }
+
 
 class SortIndex implements Comparator {
     public int compare(Object o1, Object o2) {

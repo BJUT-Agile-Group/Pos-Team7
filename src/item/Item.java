@@ -10,6 +10,7 @@ public class Item {
     private double price;
     private int num;
     private double discount;
+    private boolean promotion;
 
     public Item() {
     }
@@ -19,8 +20,14 @@ public class Item {
         setPrice(index.getPrice());
         setUnit(index.getUnit());
         setName(index.getName());
-        setDiscount(index.getDiscount());
         setNum(1);
+        if (index.isPromotion()) {
+            setPromotion(true);
+            setDiscount(1);
+        } else {
+            setDiscount(index.getDiscount());
+            setPromotion(false);
+        }
     }
 
     public Item(String[] a) {
@@ -85,10 +92,24 @@ public class Item {
     }
 
     public double getTotal() {
-        return getNum() * getPrice() * getDiscount();
+        if (this.isPromotion() && this.getNum() >= 3) {
+            return (getNum() - 1) * getPrice() * getDiscount();
+        } else
+            return getNum() * getPrice() * getDiscount();
     }
 
     public double getTotalDiscount() {
-        return getNum() * getPrice() * (1 - getDiscount());
+        if (this.isPromotion())
+            return getPrice();
+        else
+            return getNum() * getPrice() * (1 - getDiscount());
+    }
+
+    public boolean isPromotion() {
+        return promotion;
+    }
+
+    public void setPromotion(boolean promotion) {
+        this.promotion = promotion;
     }
 }
