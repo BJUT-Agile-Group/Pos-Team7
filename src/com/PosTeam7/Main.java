@@ -3,25 +3,39 @@ package com.PosTeam7;
 import item.Index;
 import item.Item;
 import item.ProductList;
-import item.ShoppongCart;
+import item.ShoppingCart;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.lang.System.exit;
 
 public class Main {
 
     public static void main(String[] args) {
         List<Index> indexList = new ArrayList<Index>();
         List<ProductList> productList = new ArrayList<ProductList>();
-        List<Item> shoppongCart = new ArrayList<Item>();
+        ShoppingCart shoppingCart = new ShoppingCart();
         Index index = new Index(indexList);
         ProductList product = new ProductList(productList);
 
         int i = 0;
-        for (ProductList barcode : productList)
-        {
-            if(barcode.getBarcode() == indexList.get(i).getBarcode()) {
+        for (ProductList barcode : productList) {
+            if (barcode.getBarcode().equals(indexList.get(i).getBarcode())) {
                 Item item = new Item(indexList.get(i));
-                shoppongCart.add(item);
+                shoppingCart.add(item);
+            } else {
+                while (++i < indexList.size()) {
+                    if (barcode.getBarcode().equals(indexList.get(i).getBarcode())) {
+                        Item item = new Item(indexList.get(i));
+                        shoppingCart.add(item);
+                        break;
+                    }
+                }
+                if (i >= indexList.size()) {
+                    System.out.println("Barcode not found.");
+                    exit(0);
+                }
             }
         }
 
@@ -34,16 +48,17 @@ public class Main {
                 }
             }
         }
+*/
         double sum = 0;
         double discount = 0;
-        for (Item a : shoppingCart) {
+        for (Item a : shoppingCart.shoppingCart) {
             System.out.println(a.getName() + "," + a.getNum() + a.getUnit() + "," + "￥" + a.getTotal());
             sum += a.getTotal();
             discount += a.getTotalDiscount();
         }
         System.out.println("￥" + sum);
         System.out.println("save:" + "￥" + (float) discount);
-    }*/
+    }
 /*
     public static String getLine() {
         Scanner in = new Scanner(System.in);
@@ -61,5 +76,4 @@ public class Main {
         }
         return shoppingCart;
     }*/
-    }
 }
