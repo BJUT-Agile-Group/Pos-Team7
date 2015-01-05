@@ -19,6 +19,8 @@ public class Item {
         setPrice(index.getPrice());
         setUnit(index.getUnit());
         setName(index.getName());
+        setDiscount(index.getDiscount());
+        setNum(1);
     }
 
     public Item(String[] a) {

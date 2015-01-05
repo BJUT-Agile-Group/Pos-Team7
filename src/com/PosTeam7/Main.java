@@ -1,8 +1,9 @@
 package com.PosTeam7;
 
 import item.Index;
+import item.Item;
 import item.ProductList;
-
+import item.ShoppongCart;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +12,19 @@ public class Main {
     public static void main(String[] args) {
         List<Index> indexList = new ArrayList<Index>();
         List<ProductList> productList = new ArrayList<ProductList>();
+        List<Item> shoppongCart = new ArrayList<Item>();
         Index index = new Index(indexList);
         ProductList product = new ProductList(productList);
+
+        int i = 0;
+        for (ProductList barcode : productList)
+        {
+            if(barcode.getBarcode() == indexList.get(i).getBarcode()) {
+                Item item = new Item(indexList.get(i));
+                shoppongCart.add(item);
+            }
+        }
+
         //  List<Item> shoppingCart = getShoppingCart(getLine());
 /*        for (int i = 0; i < shoppingCart.size(); i++) {
             for (int j = shoppingCart.size() - 1; j > i; j--) {
