@@ -1,5 +1,6 @@
 package com.PosTeam7;
 
+import item.Index;
 import item.Item;
 
 import java.util.ArrayList;
@@ -9,6 +10,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        List<Index> indexList = new ArrayList<Index>();
+        Index index = new Index(indexList);
         List<Item> shoppingCart = getShoppingCart(getLine());
         for (int i = 0; i < shoppingCart.size(); i++) {
             for (int j = shoppingCart.size() - 1; j > i; j--) {

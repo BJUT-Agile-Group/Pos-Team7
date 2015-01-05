@@ -21,8 +21,7 @@ public class MainTest {
 
     @Test
     public void testMain() throws Exception {
-        testGetInput();
-        testGetShoppingCart();
+        test.item.IndexTest.testGetLine();
     }
 
     @Test
