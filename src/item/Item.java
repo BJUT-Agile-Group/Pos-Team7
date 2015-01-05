@@ -12,7 +12,13 @@ public class Item {
     private double discount;
 
     public Item() {
+    }
 
+    public Item(Index index) {
+        setBarcode(index.getBarcode());
+        setPrice(index.getPrice());
+        setUnit(index.getUnit());
+        setName(index.getName());
     }
 
     public Item(String[] a) {

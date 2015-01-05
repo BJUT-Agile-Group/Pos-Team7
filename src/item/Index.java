@@ -23,6 +23,7 @@ public class Index {
     }
 
     public Index(List<Index> indexList) {
+        System.out.println("输入索引文件:" );
         Scanner in = new Scanner(System.in);
         StringBuilder inputStr = new StringBuilder();
         do {
@@ -34,6 +35,7 @@ public class Index {
             Index index = new Index(d.replaceAll("\\'\\:|\\{|\\'|name|unit|price| |\\'|\\,", "" ).split(":" ));
             indexList.add(index);
         }
+
     }
 
     public String getName() {

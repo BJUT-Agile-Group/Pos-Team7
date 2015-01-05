@@ -1,19 +1,20 @@
 package com.PosTeam7;
 
 import item.Index;
-import item.Item;
+import item.ProductList;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         List<Index> indexList = new ArrayList<Index>();
-        Index index = new Index(indexList);
-        List<Item> shoppingCart = getShoppingCart(getLine());
-        for (int i = 0; i < shoppingCart.size(); i++) {
+        List<ProductList> productList = new ArrayList<ProductList>();
+        // Index index = new Index(indexList);
+        ProductList product = new ProductList(productList);
+        //  List<Item> shoppingCart = getShoppingCart(getLine());
+/*        for (int i = 0; i < shoppingCart.size(); i++) {
             for (int j = shoppingCart.size() - 1; j > i; j--) {
                 if (shoppingCart.get(i).getBarcode().equals(shoppingCart.get(j).getBarcode())) {
                     shoppingCart.get(i).setNum(shoppingCart.get(i).getNum() + 1);
@@ -30,8 +31,8 @@ public class Main {
         }
         System.out.println("￥" + sum);
         System.out.println("save:" + "￥" + (float) discount);
-    }
-
+    }*/
+/*
     public static String getLine() {
         Scanner in = new Scanner(System.in);
         StringBuilder inputStr = new StringBuilder();
@@ -47,5 +48,6 @@ public class Main {
             shoppingCart.add(new Item(a.split(",|，")));
         }
         return shoppingCart;
+    }*/
     }
 }
