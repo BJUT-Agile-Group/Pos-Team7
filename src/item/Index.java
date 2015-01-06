@@ -18,7 +18,6 @@ public class Index {
     public Index() {
     }
 
-
     public Index(String a[]) {
         setBarcode(a[0]);
         setName(a[1]);
@@ -100,6 +99,17 @@ public class Index {
 
     public void setPromotion(boolean promotion) {
         this.promotion = promotion;
+    }
+
+    public void deleteIndex(List<ProductList> productList, String index) {
+        for (int n = 0; n < productList.size(); n++) {
+            if (productList.get(n).getBarcode().equals(index)) {
+                productList.remove(n);
+                System.out.println("索引已删除");
+            } else {
+                System.out.println("该索引不存在");
+            }
+        }
     }
 }
 

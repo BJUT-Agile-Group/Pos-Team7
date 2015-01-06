@@ -36,6 +36,17 @@ public class ProductList {
     public void setBarcode(String barcode) {
         this.barcode = barcode;
     }
+
+    public void deleteProductList(List<Index> indexList, String index) {
+        for (int n = 0; n < indexList.size(); n++) {
+            if (indexList.get(n).getBarcode().equals(index)) {
+                indexList.remove(n);
+                System.out.println("商品已删除");
+            } else {
+                System.out.println("商品不存在");
+            }
+        }
+    }
 }
 
 //class SortProduct implements Comparator {
