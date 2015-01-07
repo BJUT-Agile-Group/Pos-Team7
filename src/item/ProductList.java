@@ -1,39 +1,36 @@
 package item;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * Created by joe on 15/1/5.
  */
-public class ProductList {
-    private String barcode;
+public class ProductList implements Serializable {
+    private List<String> barcode;
+    private String userName;
 
     public ProductList() {
+        barcode = new ArrayList<String>();
     }
 
-    public ProductList(List<ProductList> productList) {
-        System.out.println("输入商品列表文件:" );
-        Scanner in = new Scanner(System.in);
-        StringBuilder inputStr = new StringBuilder();
-        do {
-            inputStr.append(in.nextLine());
-        } while (!inputStr.toString().replaceAll(" ", "" ).endsWith("]" ));
-        String input = inputStr.toString();
-        String c[] = input.replaceAll("\\[|\\]|\\'|\n| ", "" ).split("," );
-        for (String d : c) {
-            ProductList product = new ProductList();
-            product.setBarcode(d);
-            productList.add(product);
-        }
-//        productList.sort(new SortProduct());
+    public String getUserName() {
+        return userName;
     }
 
-    public String getBarcode() {
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public List<String> getBarcode() {
         return barcode;
     }
 
-    public void setBarcode(String barcode) {
+    public void setBarcode(List<String> barcode) {
         this.barcode = barcode;
     }
 
@@ -46,6 +43,34 @@ public class ProductList {
                 System.out.println("商品不存在");
             }
         }
+    }
+
+    public void read() {
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("ProductList.txt"));
+            StringBuilder stringBuilder = new StringBuilder();
+            do {
+                String data = bufferedReader.readLine();
+                stringBuilder.append(data);
+            } while (!stringBuilder.toString().replaceAll(" ", "").endsWith("}"));
+            String input = stringBuilder.toString();
+            String c[] = input.replaceAll(" |\n|\t|\\{|\\}|'user':|'|’|items", "").split(",:");
+            for (int n = 0; n < c.length; n++) {
+                //   product.setBarcode(d);
+                //  productList.add(product);
+                if (n == 0) {
+                    this.setUserName(c[0]);
+                } else {
+                    String[] item = c[1].replaceAll("\\[|\\]", "").split(",");
+                    for (String d : item) {
+                        this.getBarcode().add(d);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
 

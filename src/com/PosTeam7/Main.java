@@ -1,9 +1,6 @@
 package com.PosTeam7;
 
-import item.Index;
-import item.Item;
-import item.ProductList;
-import item.ShoppingCart;
+import item.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,20 +11,40 @@ public class Main {
 
     public static void main(String[] args) {
         List<Index> indexList = new ArrayList<Index>();
-        List<ProductList> productList = new ArrayList<ProductList>();
         List<Item> promotion = new ArrayList<Item>();
+        List<Users> user = new ArrayList<Users>();
         ShoppingCart shoppingCart = new ShoppingCart();
-        Index index = new Index(indexList);
-        ProductList product = new ProductList(productList);
+        Index index = new Index();
+        ProductList product = new ProductList();
+        Users users = new Users();
+        index.read(indexList);
+        product.read();
+        users.read(user);
 
         int i = 0;
-        for (ProductList barcode : productList) {
-            if (barcode.getBarcode().equals(indexList.get(i).getBarcode())) {
+        for (Users username : user) {
+            if (username.getName().equals(product.getUserName())) {
+                shoppingCart.vip = username.getVip();
+                shoppingCart.score = username.getScore();
+                break;
+            } else {
+                i++;
+            }
+
+        }
+        if (i == user.size()) {
+            System.out.println("没有这个用户!");
+            exit(0);
+        }
+
+        i = 0;
+        for (String barcode : product.getBarcode()) {
+            if (barcode.equals(indexList.get(i).getBarcode())) {
                 Item item = new Item(indexList.get(i));
                 shoppingCart.add(item);
             } else {
                 while (++i < indexList.size()) {
-                    if (barcode.getBarcode().equals(indexList.get(i).getBarcode())) {
+                    if (barcode.equals(indexList.get(i).getBarcode())) {
                         Item item = new Item(indexList.get(i));
                         shoppingCart.add(item);
                         break;
@@ -39,28 +56,45 @@ public class Main {
                 }
             }
         }
-
-        //  List<Item> shoppingCart = getShoppingCart(getLine());
-/*        for (int i = 0; i < shoppingCart.size(); i++) {
-            for (int j = shoppingCart.size() - 1; j > i; j--) {
-                if (shoppingCart.get(i).getBarcode().equals(shoppingCart.get(j).getBarcode())) {
-                    shoppingCart.get(i).setNum(shoppingCart.get(i).getNum() + 1);
-                    shoppingCart.remove(j);
-                }
-            }
-        }
-*/
         double sum = 0;
         double discount = 0;
+        //计算购物积分
         for (Item a : shoppingCart.shoppingCart) {
-            System.out.println("***商店购物清单***\n");
-            System.out.println(a.getName() + "," + a.getNum() + a.getUnit() + "," + "￥" + a.getTotal());
-            System.out.println("************\n");
-            if (a.isPromotion() && a.getNum() >= 3) {
-                promotion.add(a);
+            if (!shoppingCart.vip.equals("true")) {
+                sum += a.getTotal();
+                discount += a.getTotalDiscount();
+            } else {
+                sum += a.getVipTotal();
+                discount += a.getVipTotalDiscount();
             }
-            sum += a.getTotal();
-            discount += a.getTotalDiscount();
+        }
+
+
+        System.out.println("***商店购物清单***\n");
+        if (shoppingCart.score <= 200) {
+            System.out.println("会员编号:" + product.getUserName() + "\t会员积分:" + (int) (sum / 5 + shoppingCart.score));
+        } else if (shoppingCart.score > 200 && shoppingCart.score <= 500) {
+            System.out.println("会员编号:" + product.getUserName() + "\t会员积分:" + ((3 * (int) (sum / 5)) + shoppingCart.score));
+        } else if (shoppingCart.score > 500) {
+            System.out.println("会员编号:" + product.getUserName() + "\t会员积分:" + ((5 * (int) (sum / 5)) + shoppingCart.score));
+        }
+        System.out.println("************\n");
+        sum = 0;
+        discount = 0;
+        for (Item a : shoppingCart.shoppingCart) {
+            if (!shoppingCart.vip.equals("true")) {
+                System.out.println(a.getName() + "," + a.getNum() + a.getUnit() + "," + a.getPrice() + "," + "￥" + a.getTotal());
+
+                if (a.isPromotion() && a.getNum() >= 2) {
+                    promotion.add(a);
+                }
+                sum += a.getTotal();
+                discount += a.getTotalDiscount();
+            } else {
+                System.out.println(a.getName() + "," + a.getNum() + a.getUnit() + "," + a.getPrice() + "," + "￥" + a.getVipTotal());
+                sum += a.getVipTotal();
+                discount += a.getVipTotalDiscount();
+            }
         }
         if (!promotion.isEmpty()) {
             System.out.println("爺送你的");

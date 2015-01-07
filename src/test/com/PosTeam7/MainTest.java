@@ -14,7 +14,7 @@ public class MainTest {
     @Test
     public void testMain() throws Exception {
         //test.item.IndexTest.testGetLine();
-        test.item.ProductListTest.testGetBarcode();
+
     }
 
     @Test

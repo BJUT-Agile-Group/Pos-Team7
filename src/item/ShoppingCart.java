@@ -8,6 +8,8 @@ import java.util.List;
  */
 public class ShoppingCart {
     public List<Item>  shoppingCart = new ArrayList<Item>();
+    public String vip;
+    public int score;
 
     public void add(Item item) {
         if (shoppingCart.size() == 0) {

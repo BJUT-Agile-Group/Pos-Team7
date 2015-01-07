@@ -1,21 +1,30 @@
 package item;
 
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
-
 /**
  * Created by joe on 15/1/5.
  */
-public class Index {
+public class Index implements Serializable {
     private String barcode;
     private String name;
     private String unit;
     private double price;
     private double discount;
+    private double vipDiscount;
     private boolean promotion;
 
     public Index() {
+        setDiscount(1);
+        setVipDiscount(1);
     }
 
     public Index(String a[]) {
@@ -109,6 +118,64 @@ public class Index {
             } else {
                 System.out.println("该索引不存在");
             }
+        }
+    }
+
+    public double getVipDiscount() {
+        return vipDiscount;
+    }
+
+    public void setVipDiscount(double vipDiscount) {
+        this.vipDiscount = vipDiscount;
+    }
+
+    public void read(List<Index> indexList) {
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("Index.txt"));
+            StringBuilder stringBuilder = new StringBuilder();
+            String data = null;
+            do {
+                data = bufferedReader.readLine();
+                if (data != null) {
+                    stringBuilder.append(data);
+                }
+            } while (data != null);
+            JSONObject jObject = new JSONObject(stringBuilder.toString());
+            Iterator keys = jObject.keys();
+            while (keys.hasNext()) {
+                Index index = new Index();
+                String barcode = (String) keys.next();
+                index.setBarcode(barcode);
+                JSONObject jChildObject = jObject.getJSONObject(barcode);
+                Iterator childKeys = jChildObject.keys();
+                //        System.out.print(barcode + "\t");
+                while (childKeys.hasNext()) {
+                    String childKey = (String) childKeys.next();
+                    if (childKey.equals("unit")) {
+                        index.setUnit(jChildObject.get(childKey).toString());
+                    } else if (childKey.equals("price")) {
+                        index.setPrice(Double.parseDouble(jChildObject.get(childKey).toString()));
+                    } else if (childKey.equals("name")) {
+                        index.setName(jChildObject.get(childKey).toString());
+                    } else if (childKey.equals("discount")) {
+                        index.setDiscount(Double.parseDouble(jChildObject.get(childKey).toString()));
+                    } else if (childKey.equals("vipDiscount")) {
+                        index.setVipDiscount(Double.parseDouble(jChildObject.get(childKey).toString()));
+                    }
+                }
+                indexList.add(index);
+            }
+
+            indexList.sort(new SortIndex());
+//            System.out.println(indexList.get(0).getBarcode());
+//            data = stringBuilder.toString().replaceAll(" |\n|\t", "");
+//            String c[] = data.substring(0, data.length() - 2).split("}," );
+//            for (String d : c) {
+//                Index index = new Index(d.replaceAll("\\'\\:|\\{|\\'|name|unit|price|discount|promotion| |\\'|\\,|，", "").split(":"));
+//                indexList.add(index);
+//            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

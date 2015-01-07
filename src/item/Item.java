@@ -1,9 +1,13 @@
 package item;
 
+import java.io.Serializable;
+
 /**
  * Created by joe on 14/12/30.
  */
-public class Item {
+public class Item implements Serializable {
+
+
     private String barcode;
     private String name;
     private String unit;
@@ -11,22 +15,24 @@ public class Item {
     private int num;
     private double discount;
     private boolean promotion;
+    private double vipdiscount;
 
     public Item() {
     }
 
     public Item(Index index) {
-        setBarcode(index.getBarcode());
-        setPrice(index.getPrice());
-        setUnit(index.getUnit());
-        setName(index.getName());
-        setNum(1);
+        this.setBarcode(index.getBarcode());
+        this.setPrice(index.getPrice());
+        this.setUnit(index.getUnit());
+        this.setName(index.getName());
+        this.setVipdiscount(index.getVipDiscount());
+        this.setNum(1);
         if (index.isPromotion()) {
-            setPromotion(true);
-            setDiscount(1);
+            this.setPromotion(true);
+            this.setDiscount(1.0);
         } else {
-            setDiscount(index.getDiscount());
-            setPromotion(false);
+            this.setDiscount(index.getDiscount());
+            this.setPromotion(false);
         }
     }
 
@@ -91,11 +97,24 @@ public class Item {
         this.discount = discount;
     }
 
+    public double getVipdiscount() {
+        return vipdiscount;
+    }
+
+    public void setVipdiscount(double vipdiscount) {
+        this.vipdiscount = vipdiscount;
+    }
+
     public double getTotal() {
-        if (this.isPromotion() && this.getNum() >= 3) {
+        if (this.isPromotion() && this.getNum() >= 2) {
+            setNum(getNum() + 1);
             return (getNum() - 1) * getPrice() * getDiscount();
         } else
             return getNum() * getPrice() * getDiscount();
+    }
+
+    public double getVipTotal() {
+        return getNum() * getPrice() * getVipdiscount() * getDiscount();
     }
 
     public double getTotalDiscount() {
@@ -103,6 +122,13 @@ public class Item {
             return getPrice();
         else
             return getNum() * getPrice() * (1 - getDiscount());
+    }
+
+    public double getVipTotalDiscount() {
+        if (discount == 1) {
+            return getNum() * getPrice() * (1 - getVipdiscount());
+        } else
+            return getNum() * getPrice() * (1 - getVipdiscount()) * (1 - getDiscount());
     }
 
     public boolean isPromotion() {
