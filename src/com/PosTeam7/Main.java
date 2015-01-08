@@ -2,7 +2,9 @@ package com.PosTeam7;
 
 import item.*;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static java.lang.System.exit;
@@ -77,6 +79,10 @@ public class Main {
         } else if (shoppingCart.score > 500) {
             shoppingCart.score += (int) (sum / 5) * 5;
         }
+        Date date = new Date();
+        SimpleDateFormat f = new SimpleDateFormat("YYYY年MM月DD日 kk:mm:ss");
+        System.out.println("打印时间:"+ f.format(date));
+        System.out.println();
         System.out.println("会员编号:" + product.getUserName() + "\t会员积分:" + shoppingCart.score);
         users.setScore(product.getUserName(), shoppingCart.score);
         System.out.println("************\n");
