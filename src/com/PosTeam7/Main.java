@@ -69,6 +69,7 @@ public class Main {
 
 
         System.out.println("***商店购物清单***\n");
+        System.out.println("************\n");
         if (shoppingCart.score <= 200) {
             shoppingCart.score += (int) (sum / 5);
         } else if (shoppingCart.score > 200 && shoppingCart.score <= 500) {
