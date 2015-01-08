@@ -27,10 +27,8 @@ public class Main {
                 shoppingCart.vip = username.getVip();
                 shoppingCart.score = username.getScore();
                 break;
-            } else {
-                i++;
             }
-
+            i++;
         }
         if (i == user.size()) {
             System.out.println("没有这个用户!");
@@ -72,12 +70,14 @@ public class Main {
 
         System.out.println("***商店购物清单***\n");
         if (shoppingCart.score <= 200) {
-            System.out.println("会员编号:" + product.getUserName() + "\t会员积分:" + (int) (sum / 5 + shoppingCart.score));
+            shoppingCart.score += (int) (sum / 5);
         } else if (shoppingCart.score > 200 && shoppingCart.score <= 500) {
-            System.out.println("会员编号:" + product.getUserName() + "\t会员积分:" + ((3 * (int) (sum / 5)) + shoppingCart.score));
+            shoppingCart.score += (int) (sum / 5) * 3;
         } else if (shoppingCart.score > 500) {
-            System.out.println("会员编号:" + product.getUserName() + "\t会员积分:" + ((5 * (int) (sum / 5)) + shoppingCart.score));
+            shoppingCart.score += (int) (sum / 5) * 5;
         }
+        System.out.println("会员编号:" + product.getUserName() + "\t会员积分:" + shoppingCart.score);
+        users.setScore(product.getUserName(), shoppingCart.score);
         System.out.println("************\n");
         sum = 0;
         discount = 0;
